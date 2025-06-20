@@ -1,0 +1,55 @@
+# ### ARQUIVO DE SEGURANÇA E ORGANIZAÇÃO DO GIT ###
+# Este arquivo instrui o Git a ignorar arquivos e pastas específicos.
+# Arquivos listados aqui NUNCA serão enviados para o seu repositório no GitHub.
+
+# 1. ARQUIVOS DE CREDENCIAIS E SEGURANÇA (O MAIS IMPORTANTE)
+# Impede que suas chaves de API e senhas sejam expostas.
+.env
+
+
+# 2. AMBIENTE VIRTUAL
+# A pasta do ambiente virtual é específica para cada máquina e pode ser muito grande.
+# Ela deve ser recriada a partir do 'requirements.txt' por cada desenvolvedor.
+.venv/
+venv/
+env/
+
+
+# 3. CACHE E BYTECODE DO PYTHON
+# Arquivos gerados automaticamente pelo Python para otimização, que não precisam
+# ser compartilhados.
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+
+# 4. ARQUIVOS DE CONFIGURAÇÃO DE EDITORES DE CÓDIGO E IDEs
+# Impede que suas configurações pessoais de editor (VS Code, PyCharm, etc.)
+# sejam enviadas para o repositório.
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+
+# 5. ARQUIVOS GERADOS PELO SISTEMA OPERACIONAL
+# Arquivos de metadados inúteis do macOS e Windows.
+.DS_Store
+Thumbs.db
+
+
+# 6. ARQUIVOS TEMPORÁRIOS E DE LOG
+# Geralmente, arquivos de log são específicos da sua execução local.
+*.log
+*.swp
+*~
+*.tmp
+*.bak
+
+
+# 7. ARTEFATOS DE BUILD E DISTRIBUIÇÃO (PARA O FUTURO)
+# Pastas geradas ao empacotar um projeto Python.
+build/
+dist/
+*.egg-info/

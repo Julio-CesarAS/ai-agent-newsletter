@@ -1,0 +1,59 @@
+<html>
+<head>
+    <style>
+        body { font-family: Arial, sans-serif; }
+    </style>
+</head>
+<body>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="center">
+                <table width="40%" border="0" cellspacing="0" cellpadding="20" style="max-width: 600px; min-width: 400px; border-collapse: collapse;">
+                    <tr>
+                        <td align="center" style="padding: 20px 0;">
+                            <h1 style="font-size: 28px; color: #363737;">O seu resumo semanal sobre Experiência do Usuário e Tecnologia</h1>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding: 10px 0;">
+                            <h2 style="color: #363737; border-bottom: 2px solid #363737; padding-bottom: 5px;">Tecnologia</h2>
+                        </td>
+                    </tr>
+                    {% for article in tech_articles %}
+                    <tr>
+                        <td style="padding: 15px 0; border-bottom: 1px solid #eeeeee;">
+                            <a href="{{ article.url }}" style="text-decoration: none;">
+                                <h3 style="font-family: Arial, sans-serif; font-size: 24px; font-weight: bold; color: #363737; margin-bottom: 5px;">
+                                    {{ article.title }}
+                                </h3>
+                            </a>
+                            <p style="font-size: 16px; color: #555555; line-height: 1.5; margin-top: 5px;">{{ article.summary }}</p>
+                        </td>
+                    </tr>
+                    {% endfor %}
+
+                    <tr>
+                        <td style="padding: 20px 0 10px 0;">
+                            <h2 style="color: #363737; border-bottom: 2px solid #363737; padding-bottom: 5px;">Experiência do Usuário</h2>
+                        </td>
+                    </tr>
+                    {% for article in ux_articles %}
+                    <tr>
+                        <td style="padding: 15px 0; border-bottom: 1px solid #eeeeee;">
+                            <a href="{{ article.url }}" style="text-decoration: none;">
+                                <h3 style="font-family: Arial, sans-serif; font-size: 24px; font-weight: bold; color: #363737; margin-bottom: 5px;">
+                                    {{ article.title }}
+                                </h3>
+                            </a>
+                            <p style="font-size: 16px; color: #555555; line-height: 1.5; margin-top: 5px;">{{ article.summary }}</p>
+                        </td>
+                    </tr>
+                    {% endfor %}
+
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

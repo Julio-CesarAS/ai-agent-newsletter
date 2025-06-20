@@ -1,0 +1,15 @@
+# requirements.txt (versão limpa e atualizada)
+
+crewai
+crewai-tools
+python-dotenv
+requests
+beautifulsoup4
+deep-translator==1.11.4
+sendgrid
+langchain-groq
+setuptools
+sentence-transformers
+langchain-text-splitters
+langchain
+Jinja2
