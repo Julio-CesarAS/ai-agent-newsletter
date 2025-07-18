@@ -17,8 +17,10 @@ class NewsSearchTool:
     def _run(self, query: str) -> str:
         """Execute the tool."""
         api_key = os.getenv("NEWSAPI_KEY")
-        # Buscando 3 artigos por query
-        url = f"https://newsapi.org/v2/everything?q={query}&language=en&sortBy=relevancy&pageSize=3&apiKey={api_key}"
+        # Buscando 3 artigos por query (ordenado por data para ter artigos mais recentes)
+        from datetime import datetime, timedelta
+        yesterday = (datetime.now() - timedelta(days=1)).strftime('%Y-%m-%d')
+        url = f"https://newsapi.org/v2/everything?q={query}&language=en&sortBy=publishedAt&from={yesterday}&pageSize=3&apiKey={api_key}"
         
         try:
             response = requests.get(url)
