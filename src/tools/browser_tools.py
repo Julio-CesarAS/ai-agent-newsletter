@@ -1,14 +1,21 @@
 # src/tools/browser_tools.py
 import os
 import requests
-import json # Importamos a biblioteca JSON
-from crewai_tools import BaseTool
+import json
+from typing import Type
+from pydantic import BaseModel, Field
 
-class BrowserTool(BaseTool):
+class NewsSearchInput(BaseModel):
+    """Input schema for NewsSearchTool."""
+    query: str = Field(..., description="Search query for news articles")
+
+class NewsSearchTool:
     name: str = "news_search_tool"
     description: str = "Busca as notícias mais recentes e relevantes sobre um tópico em inglês."
+    args_schema: Type[BaseModel] = NewsSearchInput
 
     def _run(self, query: str) -> str:
+        """Execute the tool."""
         api_key = os.getenv("NEWSAPI_KEY")
         # Buscando 3 artigos por query
         url = f"https://newsapi.org/v2/everything?q={query}&language=en&sortBy=relevancy&pageSize=3&apiKey={api_key}"
@@ -26,3 +33,6 @@ class BrowserTool(BaseTool):
         except Exception as e:
             print(f"Erro na ferramenta de busca: {e}")
             return "[]" # Retorna uma lista JSON vazia em caso de erro
+
+# Instância da ferramenta
+news_search_tool = NewsSearchTool()
